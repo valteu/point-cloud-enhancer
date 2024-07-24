@@ -1,0 +1,9 @@
+[submodule "gaussian-splatting"]
+	path = gaussian-splatting
+	url = https://github.com/graphdeco-inria/gaussian-splatting.git
+[submodule "NR-3DQA"]
+	path = NR-3DQA
+	url = https://github.com/zzc-1998/NR-3DQA.git
+[submodule "Real-time-Image-Smoothing-via-Iterative-Least-Squares"]
+	path = Real-time-Image-Smoothing-via-Iterative-Least-Squares
+	url = https://github.com/wliusjtu/Real-time-Image-Smoothing-via-Iterative-Least-Squares.git
