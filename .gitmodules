@@ -4,6 +4,6 @@
 [submodule "NR-3DQA"]
 	path = NR-3DQA
 	url = https://github.com/zzc-1998/NR-3DQA.git
-[submodule "Real-time-Image-Smoothing-via-Iterative-Least-Squares"]
-	path = Real-time-Image-Smoothing-via-Iterative-Least-Squares
-	url = https://github.com/wliusjtu/Real-time-Image-Smoothing-via-Iterative-Least-Squares.git
+[submodule "image-smoother"]
+	path = image-smoother
+	url = git@github.com:valteu/image-smoother.git
