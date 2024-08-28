@@ -4,3 +4,6 @@
 [submodule "LCDPNet"]
 	path = LCDPNet
 	url = git@github.com:onpix/LCDPNet.git
+[submodule "gaussian-splatting"]
+	path = gaussian-splatting
+	url = git@github.com:valteu/gaussian-splatting.git
