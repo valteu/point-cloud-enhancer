@@ -15,7 +15,7 @@ def process_dataset(benchmark_dataset_name, image_type):
     print("==============================================")
 
     project_path = f"data/{benchmark_dataset_name}"
-    database_path = f"{project_path}/database_{benchmark_dataset_name}.db"
+    database_path = f"{project_path}/{benchmark_dataset_name}.db"
     image_path = f"{project_path}/images/{image_type}"
     manual_sparse_model = f"{project_path}/manual_sparse_model"
     triangulated_model = f"{project_path}/triangulated_model_{image_type}"
@@ -58,7 +58,7 @@ def process_dataset(benchmark_dataset_name, image_type):
     run_command([
         "colmap", "stereo_fusion",
         "--workspace_path", dense_workspace,
-        "--output_path", f"{dense_workspace}/fused.ply"
+        "--output_path", f"{dense_workspace}/fused_{project_path}_{database_path}.ply"
     ])
 
     print(f"Finished processing {benchmark_dataset_name} with {image_type}.\n")
@@ -85,6 +85,21 @@ def main():
 
     # Process the dataset
     process_dataset(args.benchmark_dataset_name, args.name)
+
+def as_function(benchmark_dataset_name, name):
+    dataset_dir = os.path.join("data", benchmark_dataset_name)
+    images_dir = os.path.join(dataset_dir, "images", name)
+
+    # Check if required directories exist
+    if not os.path.isdir(dataset_dir):
+        print(f"Error: Dataset directory '{dataset_dir}' does not exist.")
+        sys.exit(1)
+
+    if not os.path.isdir(images_dir):
+        print(f"Error: Image directory '{images_dir}' does not exist.")
+        sys.exit(1)
+
+    process_dataset(benchmark_dataset_name, name)
 
 
 if __name__ == "__main__":
