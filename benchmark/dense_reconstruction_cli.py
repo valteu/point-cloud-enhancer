@@ -58,7 +58,7 @@ def process_dataset(benchmark_dataset_name, image_type):
     run_command([
         "colmap", "stereo_fusion",
         "--workspace_path", dense_workspace,
-        "--output_path", f"{dense_workspace}/fused_{project_path}_{database_path}.ply"
+        "--output_path", f"{dense_workspace}/fused_{benchmark_dataset_name}_{image_type}.ply"
     ])
 
     print(f"Finished processing {benchmark_dataset_name} with {image_type}.\n")
