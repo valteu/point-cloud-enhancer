@@ -26,7 +26,7 @@ datasets = [
 ]
 
 images = [
-    "resized"
+    "enh_3"
 ]
 
 for dataset in datasets:
