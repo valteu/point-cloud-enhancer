@@ -26,6 +26,8 @@ RUN git clone https://github.com/colmap/colmap.git /opt/colmap && \
     ninja && \
     ninja install
 
+RUN apt-get update && apt-get install -y bash && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /workspace
 
 ENV PATH="/usr/local/bin:$PATH"
