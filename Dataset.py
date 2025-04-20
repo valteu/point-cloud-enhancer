@@ -3,6 +3,7 @@ import argparse
 import subprocess
 import shutil
 
+
 class Dataset:
     def __init__(self, path):
         self.path = path
@@ -105,6 +106,7 @@ class Dataset:
         except Exception as e:
             print(f"Unexpected error: {e}")
 
+
 def main():
     parser = argparse.ArgumentParser(description="Dataset Processing Tool")
 
@@ -138,6 +140,7 @@ def main():
     # Execute the requested operation
     operation_func = operation_map[args.operation]
     operation_func(args.output_path)
+
 
 if __name__ == '__main__':
     main()
