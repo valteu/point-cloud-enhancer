@@ -3,6 +3,9 @@ import os
 import subprocess
 import sys
 
+DATA_PATH = "/sc/projects/sci-lippert/chair/mml/data/benchmark"
+
+os.environ["PATH"] = "/opt/colmap/bin:" + os.environ.get("PATH", "")
 
 def run_command(command, cwd=None):
     print(f"Running command: {' '.join(command)}")
@@ -14,7 +17,7 @@ def process_dataset(benchmark_dataset_name, image_type):
     print(f"Processing MODEL_DATASET: {benchmark_dataset_name} with IMAGE_TYPE: {image_type}")
     print("==============================================")
 
-    project_path = f"data/{benchmark_dataset_name}"
+    project_path = f"{DATA_PATH}/{benchmark_dataset_name}"
     database_path = f"{project_path}/{benchmark_dataset_name}.db"
     image_path = f"{project_path}/images/{image_type}"
     manual_sparse_model = f"{project_path}/manual_sparse_model"
@@ -71,7 +74,7 @@ def main():
 
     args = parser.parse_args()
 
-    dataset_dir = os.path.join("data", args.benchmark_dataset_name)
+    dataset_dir = os.path.join(DATA_PATH, args.benchmark_dataset_name)
     images_dir = os.path.join(dataset_dir, "images", args.name)
 
     # Check if required directories exist
@@ -87,7 +90,7 @@ def main():
     process_dataset(args.benchmark_dataset_name, args.name)
 
 def as_function(benchmark_dataset_name, name):
-    dataset_dir = os.path.join("data", benchmark_dataset_name)
+    dataset_dir = os.path.join(DATA_PATH, benchmark_dataset_name)
     images_dir = os.path.join(dataset_dir, "images", name)
 
     # Check if required directories exist
